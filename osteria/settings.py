@@ -76,7 +76,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'osteria.wsgi.application'
+WSGI_APPLICATION = 'booking.wsgi.application'
 
 
 # Database
