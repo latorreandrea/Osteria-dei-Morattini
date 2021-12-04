@@ -42,10 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'booking',
-    'cloudinary',
     'cloudinary_storage',
+    'django.contrib.staticfiles',
+    'cloudinary',
+    'booking',
 ]
 
 MIDDLEWARE = [
@@ -76,7 +76,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'booking.wsgi.application'
+WSGI_APPLICATION = 'osteria.wsgi.application'
 
 
 # Database
@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'booking.wsgi.application'
 #        }
 #    }
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 # Password validation
@@ -130,7 +130,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-STATICFILES_DIR = [os.path.joim(BASE_DIR, 'static')]
+STATICFILES_DIR = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
