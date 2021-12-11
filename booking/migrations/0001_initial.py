@@ -16,9 +16,7 @@ class Migration(migrations.Migration):
             name='Reservation',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('year', models.JSONField(default=booking.models.default_year)),
-                ('month', models.IntegerField(default=booking.models.default_month)),
-                ('day', models.IntegerField(default=booking.models.default_day)),
+                
                 ('seats', models.IntegerField(default=1)),
                 ('time', models.IntegerField(choices=[(0, '11.00/12.00'), (1, '12.00/13.00'), (2, '13.00/14.00'), (3, '14.00/15.00'), (4, '18.00/19.00'), (5, '19.00/20.00'), (6, '20.00/21.00'), (7, '21.00/22.00')], default=0)),
             ],

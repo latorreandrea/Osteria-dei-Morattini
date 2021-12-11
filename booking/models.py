@@ -1,20 +1,26 @@
 from django.db import models
-import datetime
+from django.contrib.auth.models import User
+
 # Create your models here.
 
 
-SEATS = ()
+class Booking(models.Model):
+    """
+    Bookings need to know:
+    - which user booked
+    - the number of people
+    - the day
+    - the time slot
+    """
+    name = models.ForeignKey(User, on_delete=models.CASCADE)
+    party_size = models.PositiveIntegerField()    
+    date = models.DateField()
+    time = models.TimeField()    
 
-TIME = (
-    (0, "11.00/12.00"), (1, "12.00/13.00"),
-    (2, "13.00/14.00"), (3, "14.00/15.00"),
-    (4, "18.00/19.00"), (5, "19.00/20.00"),
-    (6, "20.00/21.00"), (7, "21.00/22.00")
-    )
-STATUS = ((0, "Accepted"), (1, "Denied"))
-
-
-class Reservation(models.Model):
-    guests = models.IntegerField()
-    description = models.TextField(blank=True)
-    data = models.DateField()
+    def __str__(self):
+        return 'booked for {party} at {time} on {date}, on behalf {name} '.format(
+            party=self.party_size,
+            time=self.time,
+            date=self.date,
+            name=self.name
+            )
