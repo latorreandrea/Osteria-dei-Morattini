@@ -2,8 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-
-
 class Booking(models.Model):
     """
     Bookings need to know:
@@ -14,8 +12,9 @@ class Booking(models.Model):
     """
     name = models.ForeignKey(User, on_delete=models.CASCADE)
     party_size = models.PositiveIntegerField()    
-    date = models.DateField()
-    time = models.TimeField()    
+    date = models.DateField(null=True)
+    time = models.TimeField()
+    
 
     def __str__(self):
         return 'booked for {party} at {time} on {date}, on behalf {name} '.format(
@@ -24,3 +23,4 @@ class Booking(models.Model):
             date=self.date,
             name=self.name
             )
+            

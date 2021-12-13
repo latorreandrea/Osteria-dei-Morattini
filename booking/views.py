@@ -8,13 +8,11 @@ from .forms import ReservationForm
 
 
 def index(request):
-    # redirect to index view
-    return render(
-        request,
-        'index.html',
-        {
-            "booking_form": ReservationForm()
-        }
-        )
-
-
+    if request.method == "POST":
+        form = ReservationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'index.html')
+    else:
+        form = ReservationForm()
+    return render(request, 'index.html', {'booking_form': form})

@@ -7,8 +7,9 @@
 
 <h3>Book your table!:</h3>
 <p>the reservation will be in the name of: {{ user.username }}</p>
+
 <form method="post" style="margin-top: 1.3em;">
-    {{ comment_form | crispy }}
+    {{ booking_form | crispy }}
     {% csrf_token %}
     <button type="submit" class="btn btn-signup btn-lg">Submit</button>
 </form>
