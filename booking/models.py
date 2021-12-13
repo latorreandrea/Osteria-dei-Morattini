@@ -15,7 +15,6 @@ class Booking(models.Model):
     date = models.DateField(null=True)
     time = models.TimeField()
     
-
     def __str__(self):
         return 'booked for {party} at {time} on {date}, on behalf {name} '.format(
             party=self.party_size,

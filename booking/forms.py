@@ -9,6 +9,7 @@ class DateInput(forms.DateInput):
 class ReservationForm(forms.ModelForm):
     class Meta:
         model = Booking
+        exclude = ("name",)
         date = forms.DateField(widget=forms.TextInput(
             attrs={'type': 'date'}), required=True
             )
@@ -20,3 +21,4 @@ class ReservationForm(forms.ModelForm):
         widgets = {
             'date': DateInput(),
         }
+        
