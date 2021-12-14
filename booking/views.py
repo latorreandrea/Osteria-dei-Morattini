@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from .models import Booking
 from .forms import ReservationForm
@@ -19,7 +19,7 @@ def index(request):
             form.instance.name = user_id
             form.save()
             messages.success(request, 'Your reservation has been taken!')
-            return render(request, 'index.html', {'booking_form': form})
+            return redirect('reservations')
     else:
         form = ReservationForm()
         messages.error(request, 'Invalid form submission.')
