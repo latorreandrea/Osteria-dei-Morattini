@@ -10,10 +10,10 @@ from django.contrib import messages
 
 
 def index(request):
-    user = request.user
-    user_id = get_object_or_404(User, username=user)
-
+      
     if request.method == "POST":
+        user = request.user
+        user_id = get_object_or_404(User, username=user)
         form = ReservationForm(request.POST)
         if form.is_valid():
             form.instance.name = user_id
@@ -21,7 +21,16 @@ def index(request):
             messages.success(request, 'Your reservation has been taken!')
             return render(request, 'index.html', {'booking_form': form})
     else:
+        form = ReservationForm()
         messages.error(request, 'Invalid form submission.')
         messages.error(request, form.errors)
-        form = ReservationForm()
-    return render(request, 'index.html', {'booking_form': form})
+        return render(request, 'index.html', {'booking_form': form})
+
+
+def user_reservation(request):
+    user = request.user
+    user_id = get_object_or_404(User, username=user)
+    bookings = Booking.objects.filter(name=user_id)
+    
+    return render(request, 'reservations.html', {'user_booking_list': bookings})
+

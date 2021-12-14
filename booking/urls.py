@@ -5,4 +5,5 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('reservations', views.user_reservation, name='reservations'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

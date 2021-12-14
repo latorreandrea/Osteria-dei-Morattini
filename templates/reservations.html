@@ -3,15 +3,25 @@
 
 {% block content %}
 
-{% if user.is_authenticated %}
-{{ form.date }}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">N. of Guests</th>
+            <th scope="col">Time Slot</th>
+            <th scope="col">Day</th>
+        </tr>
+    </thead>
 
-<script>
-    $(function () {
-        $("#id_date").datetimepicker({
-            format: 'd/m/Y H:i',
-        });
-    });
-</script>
-{% endif %}
+    <tbody>
+        {% for bookings in user_booking_list %}
+        <tr>
+            <td>{{bookings.party_size}}</td>
+            <td>{{bookings.time}}</td>
+            <td>{{bookings.date}}</td>
+        </tr>
+        {% endfor%}
+    </tbody>
+</table>
+
+
 {% endblock %}

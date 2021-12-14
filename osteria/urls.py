@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from booking.views import index
+from booking import urls as booking_url
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('accounts/', include('allauth.urls')),
-    
+    path('bookings/', include(booking_url))
 ]
