@@ -19,7 +19,14 @@
             <td>{{bookings.party_size}}</td>
             <td>{{bookings.time}}</td>
             <td>{{bookings.date}}</td>
-            <td>action</td>
+            <td>
+                <a href="/edit/{{ bookings.id }}">
+                    <button>Edit</button>
+                </a>
+                <a href="/delete/{{ bookings.id }}">
+                    <button>Delete</button>
+                </a>
+            </td>
         </tr>
         {% endfor%}
     </tbody>

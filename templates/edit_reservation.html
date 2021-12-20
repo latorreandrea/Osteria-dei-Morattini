@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+{% if user.is_authenticated %}
+
+<h3>Edit your reservation!:</h3>
+<p>the reservation will be in the name of: {{ user.username }}</p>
+
+{% include 'messages.html' %}
+
+
+
+<form method="post" style="margin-top: 1.3em;">
+    {{ booking_form | crispy }}
+    {% csrf_token %}
+    <button type="submit" class="btn btn-signup btn-lg">Update</button>
+    {{ booking_form.errors }}
+    {{ booking_form.non_field_errors }}
+</form>
+
+{% endif %}
+
+{% endblock %}

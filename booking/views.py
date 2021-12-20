@@ -34,3 +34,29 @@ def user_reservation(request):
     
     return render(request, 'reservations.html', {'user_booking_list': bookings})
 
+
+def edit_reservation(request, bookings_id):
+    
+    this_booking = get_object_or_404(Booking, id=bookings_id)
+    
+    if request.method == "POST":
+        form = ReservationForm(request.POST, instance=this_booking)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your reservation has been taken!')
+            return redirect('reservations')
+        else:
+            print(form.errors)
+    else:
+        form = ReservationForm(instance=this_booking)
+        messages.error(request, 'Invalid form submission.')
+        messages.error(request, form.errors)
+           
+    
+    return render(request, 'edit_reservation.html', {'booking_form': form})
+
+def delete_reservation(request, bookings_id):    
+    this_booking = get_object_or_404(Booking, id=bookings_id)
+    this_booking.delete()
+    return redirect('reservations')
