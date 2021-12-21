@@ -3,7 +3,17 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-TIME_CHOICES = (("1","10.00-11.00"),("2","11.00-12.00"))
+TIME_CHOICES = (
+    ("1", "10.00-11.00"),
+    ("2", "11.00-12.00"),
+    ("3", "12.00-13.00"),
+    ("4", "13.00-14.00"),
+    ("5", "19.00-20.00"),
+    ("6", "20.00-21.00"),
+    ("7", "21.00-22.00"),
+    ("8", "22.00-23.00"),    
+    )
+
 
 class Booking(models.Model):
     """
@@ -26,6 +36,3 @@ class Booking(models.Model):
             date=self.date,
             name=self.name
             )
-
-
-       
