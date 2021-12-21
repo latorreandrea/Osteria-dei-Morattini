@@ -21,4 +21,3 @@ class ReservationForm(forms.ModelForm):
         widgets = {
             'date': DateInput(),
         }
-        
