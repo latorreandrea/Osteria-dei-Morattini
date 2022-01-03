@@ -12,10 +12,9 @@ from django.contrib import messages
 
 def index(request):
       
-    if request.method == "POST":
-        
+    if request.method == "POST":        
         user = request.user
-        user_id = get_object_or_404(User, username=user)        
+        user_id = get_object_or_404(User, username=user)
         form = ReservationForm(request.POST)
               
 
@@ -30,9 +29,7 @@ def index(request):
                 messages.success(request, 'Your reservation has been taken!')
                 return redirect('reservations')            
     else:
-        form = ReservationForm()
-        messages.error(request, 'Invalid form submission.')
-        messages.error(request, form.errors)
+        form = ReservationForm()        
         return render(request, 'index.html', {'booking_form': form})
 
 
@@ -56,13 +53,10 @@ def edit_reservation(request, bookings_id):
             messages.success(request, 'Your reservation has been taken!')
             return redirect('reservations')
         else:
-            print(form.errors)
+            messages.error(request, 'Invalid form submission.')
+            messages.error(request, form.errors)
     else:
         form = ReservationForm(instance=this_booking)
-        messages.error(request, 'Invalid form submission.')
-        messages.error(request, form.errors)
-           
-    
     return render(request, 'edit_reservation.html', {'booking_form': form})
 
 def delete_reservation(request, bookings_id):    
