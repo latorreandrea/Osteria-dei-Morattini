@@ -60,3 +60,7 @@ def delete_reservation(request, bookings_id):
     this_booking = get_object_or_404(Booking, id=bookings_id)
     this_booking.delete()
     return redirect('reservations')
+
+
+def menu(request):
+    return render(request, 'menu.html',)

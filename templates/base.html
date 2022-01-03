@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link" href="{% url 'index' %}">Home</a>
-                    <a class="nav-link" href="#">Menu</a>
+                    <a class="nav-link" href="{% url 'menu' %}">Menu</a>
 
                     {% if user.is_authenticated %}
 
