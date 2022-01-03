@@ -15,16 +15,20 @@ def index(request):
     if request.method == "POST":
         
         user = request.user
-        user_id = get_object_or_404(User, username=user)
-        bookings = Booking.objects.filter(name=user_id)
+        user_id = get_object_or_404(User, username=user)        
         form = ReservationForm(request.POST)
-        obj, created = Bookings.objects.get_or_create(date=form.instance.date, user=user)
+              
 
         if form.is_valid():
-            form.instance.name = user_id
-            form.save()
-            messages.success(request, 'Your reservation has been taken!')
-            return redirect('reservations')
+            booking_exist = Booking.objects.filter(date=form.instance.date, name=user_id)
+            if len(booking_exist) >= 1:
+                messages.error(request, 'You have already a reservation in this date')
+                return render(request, 'index.html', {'booking_form': form})
+            else:
+                form.instance.name = user_id
+                form.save()
+                messages.success(request, 'Your reservation has been taken!')
+                return redirect('reservations')            
     else:
         form = ReservationForm()
         messages.error(request, 'Invalid form submission.')
