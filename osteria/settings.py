@@ -14,7 +14,7 @@ import os
 import dj_database_url
 if os.path.isfile("./env.py"):
     import env
-
+import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -196,3 +196,11 @@ LOGOUT_REDIRECT_URL = '/'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+
+# testing
+
+
+if 'test' in sys.argv or 'test_coverage' in sys.argv:
+     #Covers regular testing and django-coverage
+    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
