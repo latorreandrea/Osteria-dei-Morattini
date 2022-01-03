@@ -2,7 +2,8 @@ from django import forms
 from .models import Booking
 
 
-class DateInput(forms.DateInput):
+
+class DateInput(forms.DateInput):    
     input_type = 'date'
 
 
@@ -21,3 +22,8 @@ class ReservationForm(forms.ModelForm):
         widgets = {
             'date': DateInput(),
         }
+
+
+    
+    
+    
