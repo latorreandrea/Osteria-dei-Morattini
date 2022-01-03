@@ -21,17 +21,20 @@
 
 {% load crispy_forms_tags %}
 {% if user.is_authenticated %}
+<div class="fluid-container">
+    <div class="row">
+        <h3>Book your table!:</h3>
+        <p>the reservation will be in the name of: {{ user.username }}</p>
 
-<h3>Book your table!:</h3>
-<p>the reservation will be in the name of: {{ user.username }}</p>
+        {% include 'messages.html' %}
 
-{% include 'messages.html' %}
-
-<form method="post" style="margin-top: 1.3em;">
-    {{ booking_form | crispy }}
-    {% csrf_token %}
-    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-</form>
+        <form method="post" style="margin-top: 1.3em;">
+            {{ booking_form | crispy }}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+        </form>
+    </div>
+</div>
 {% endif %}
 
 {% endblock %}

@@ -1,11 +1,19 @@
 {% if messages %}
 {% for message in messages %}
 
-<div class="close bs alert alert-success d-flex align-items-center" role="alert">
+<div id="alert" class="close bs alert alert-info d-flex align-items-center" role="alert">
     <div>
         <strong>{{message}}<strong>
     </div>
 </div>
+<script>
+    let alert = document.getElementById('alert');
 
+    const timeout = setTimeout(disappear, 3000);
+
+    function disappear() {
+        document.getElementById("alert").remove()
+    }
+</script>
 {% endfor %}
 {% endif %}

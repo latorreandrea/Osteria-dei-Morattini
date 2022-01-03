@@ -5,6 +5,7 @@ from .models import Booking
 from .forms import ReservationForm
 from django.contrib import messages
 
+# Validate form
 
 # Create your views here.
 
@@ -12,9 +13,13 @@ from django.contrib import messages
 def index(request):
       
     if request.method == "POST":
+        
         user = request.user
         user_id = get_object_or_404(User, username=user)
+        bookings = Booking.objects.filter(name=user_id)
         form = ReservationForm(request.POST)
+        obj, created = Bookings.objects.get_or_create(date=form.instance.date, user=user)
+
         if form.is_valid():
             form.instance.name = user_id
             form.save()
