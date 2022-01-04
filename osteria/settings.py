@@ -161,7 +161,7 @@ CLOUDINARY_STORAGE = {
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIR = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIAFILES_LOCATION = 'media'
 MEDIA_URL = '/media/'
