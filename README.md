@@ -65,7 +65,6 @@ A page listing the restaurant menu
 
 ## Technologies Used:
 
-## Technologies Used
 
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
   - used to structure the website and create the essential elements of my site. 
