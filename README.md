@@ -3,7 +3,7 @@
 ## Code Institute Portfolio 4 Project
 
 Osteria dei Morattini is an imaginary restaurant that gives its customers the opportunity to book a a culinary experience online .
-A live website can be found [here](https://github.com/latorreandrea/Osteria-dei-Morattini)
+A live website can be found [here](https://osteria-dei-morattini.herokuapp.com/)
 
 ## Project goal: Make your reservation!
 
