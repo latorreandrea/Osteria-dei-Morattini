@@ -65,6 +65,11 @@ A page listing the restaurant menu
 
 ## Technologies Used:
 
+- [Django](https://www.djangoproject.com/)
+  - used to create and use the app.
+
+- [MySQL](https://www.djangoproject.com/)
+  - used as Relatonal database.
 
 - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
   - used to structure the website and create the essential elements of my site. 
