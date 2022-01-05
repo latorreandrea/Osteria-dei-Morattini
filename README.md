@@ -24,7 +24,20 @@ The user would like to book one or more guests for a meal in a restaurant and a 
 
 The site owner would like the ability to take online bookings for their eatery, possibly blocking more bookings for the same day from the same user
 
-### Features:
+### User Stories:
+
+
+- As a userI can register on the site so that I can access to the booking sistem
+- As a user I can have multiple table occupancies so that I can eat together with my friends / colleagues / partner etc.
+- As a user I can see the menu in the web site so that I already know what cuisine it is, prices, etc. before arriving at the restaurant
+- As a user I can cancel my booking so I can free up the places I don't intend to occupy
+- As a user I can avoid doble bookings so that I do not create inconvenience in the service
+- As a user I can book a seat so that so I can definitely use the restaurant
+
+
+
+
+## Features:
 the main features of the site are:
 
 ### Home Page:
@@ -46,8 +59,39 @@ Each user will of course only be able to see their own reservation list with the
 A page listing the restaurant menu
 ![menu](https://user-images.githubusercontent.com/80674568/148095729-39b37156-1838-4b63-b2e9-eab91fea36cb.PNG)
 
+## Features Left to Implement:
 
-## Testing
+- Calendar - use calendar to send a reminder to the user
+
+## Technologies Used:
+
+## Technologies Used
+
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+  - used to structure the website and create the essential elements of my site. 
+
+- [CSS](https://www.w3.org/Style/CSS/Overview.en.html) 
+  - used to style the markup and create custom styling. 
+
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+  - used to create the scripts to delete messages afther 3 second.
+
+- [GitHub](https://github.com/) 
+  - used to store the source code and repository. 
+- [Heroku](https://www.heroku.com/) 
+  - used to deploy my website.
+
+- [Balsamiq](https://balsamiq.com/) 
+  - used to help create my wireframes.
+
+- [FontAwe](https://fontawesome.com/)
+  - used to use some icons in the site.
+
+- [pixabay](https://pixabay.com/)
+  - used for the menu and homepage images.
+
+
+## Testing:
 
 ### Automated Test
 
@@ -86,12 +130,13 @@ This page has been deployed to "Heroku"
 - Deploy Branch through Manual Deploy' in Heroku App Dashboard
 - Added the heroku address to valid hosts in settings.py
 
-## Credit
 
-### Content
+## Credits
 
-- The icons in the footer were taken from .[Font Awesome](https://fontawesome.com/)
+- Favicon
+- StackOverflow
+- Pixabay for images
+- https://ordinarycoders.com/ for the footer
+- CodeInstitute tutor support: in particular JoWings to help me to set in the right way static files
 
-### Media
 
-- The images used for the menu and for the homepage were taken from .[pixabay](https://pixabay.com/)
